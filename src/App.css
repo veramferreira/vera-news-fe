@@ -5,10 +5,6 @@
   text-align: center;
 }
 
-header {
-  border: 2px solid salmon;
-}
-
 ul {
   list-style: none;
 }
@@ -25,6 +21,9 @@ ul {
 }
 
 .header--title {
+  font-size: 3rem;
+  font-weight: 900;
+  text-transform: uppercase;
   align-items: center;
   margin: 0;
   padding-top: 20px;
@@ -47,6 +46,33 @@ ul {
 .nav > a:hover {
   transform: scale(1.1);
   color: rgb(155, 177, 227)
+}
+
+.home > h2 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  text-transform:lowercase;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.home--link  {
+  display: block;
+  margin: 0 auto;
+  width: 150px;
+  padding: 20px 40px;
+  margin-top: 50px;
+  font-size: 1.3rem;
+  background-color: rgb(155, 177, 227);
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  color: aliceblue;
+  box-shadow: 0px 5px 20px 5px rgb(31, 42, 66);
+}
+
+.home--link:hover {
+  transform: scale(1.1);
 }
 
 .topics-list > h2 {
