@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import fetchTopics from "../utils";
+import {fetchTopics} from "../utils";
 
 export default function TopicsList() {
   const [topics, setTopics] = useState([]);
@@ -13,8 +13,6 @@ export default function TopicsList() {
         setTopics(topics);
       });
   }, []);
-
-  //   console.log(topics);
 
   return (
     <section className="topics-list">
