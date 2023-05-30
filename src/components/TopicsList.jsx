@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
-import {fetchTopics} from "../utils";
+import { fetchTopics } from "../utils";
+import BeatLoader from "react-spinners/BeatLoader";
 
 export default function TopicsList() {
   const [topics, setTopics] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  let [color, setColor] = useState("#ffffff");
 
   useEffect(() => {
     fetchTopics()
@@ -11,8 +14,21 @@ export default function TopicsList() {
       })
       .then((topics) => {
         setTopics(topics);
+        setIsLoading(false);
       });
   }, []);
+
+  if (isLoading) {
+    return (
+      <BeatLoader
+        color={color}
+        loading={isLoading}
+        size={50}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />
+    );
+  }
 
   return (
     <section className="topics-list">

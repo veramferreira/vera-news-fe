@@ -100,8 +100,6 @@ ul {
   font-style: italic;
 }
 
-/* Media queries for responsive images */
-
 @media screen and (max-width: 768px) {
   .articles > li > img {
     max-width: 80%;
