@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchArticles } from "../utils";
 import BeatLoader from "react-spinners/BeatLoader";
+import { Link } from "react-router-dom";
 
 export default function ArticlesList() {
   const [articles, setArticles] = useState([]);
@@ -20,13 +21,16 @@ export default function ArticlesList() {
 
   if (isLoading) {
     return (
-      <BeatLoader
-        color={color}
-        loading={isLoading}
-        size={50}
-        aria-label="Loading Spinner"
-        data-testid="loader"
-      />
+      <>
+        <h3>waiting for your data to magically appear</h3>
+        <BeatLoader
+          color={color}
+          loading={isLoading}
+          size={50}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
+      </>
     );
   }
 
@@ -37,12 +41,14 @@ export default function ArticlesList() {
         {articles.map((article) => {
           return (
             <li key={article.article_id}>
-              <h3>{article.title}</h3>
-              <img
-                src={article.article_img_url}
-                alt={`something related to ${article.title}`}
-              />
-              <p>By: {article.author}</p>
+              <Link to={`/articles/${article.article_id}`}>
+                <h3>{article.title}</h3>
+                <img
+                  src={article.article_img_url}
+                  alt={`something related to ${article.title}`}
+                />
+                <p>By: {article.author}</p>
+              </Link>
             </li>
           );
         })}

@@ -6,6 +6,7 @@
   color-scheme: light dark;
   color: rgb(44, 40, 57);
   background-color: rgb(232, 238, 253);
+  background: linear-gradient(80deg, rgb(232, 238, 253) 60%, rgb(242, 246, 254) 60%);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -59,3 +60,4 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
