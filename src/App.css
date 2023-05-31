@@ -176,6 +176,42 @@ ul {
   margin-top: 5px;
 }
 
+/* COMMENTS */
+
+.comments {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  background-color: rgba(205, 217, 244, 0.622);
+  padding: 0 30px;
+  border-radius: 5px;
+}
+
+.comments > ul {
+  text-align: left;
+}
+
+.comments--title {
+  text-align: left;
+  padding-top: 20px;
+}
+
+.comments--card {
+  background-color: rgba(155, 177, 227, 0.772);
+  padding: 10px 30px;
+  margin: 20px 40px 20px 20px;
+  border-radius: 5px;
+  border: 2px solid rgba(244, 243, 243, 0.75)
+}
+
+.comments--stats {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: rgb(82, 78, 95);
+  font-size: 0.90rem;
+}
+
 @media screen and (max-width: 768px) {
   .articles > li > img,
   .article--img {
