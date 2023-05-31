@@ -25,3 +25,14 @@ export function fetchArticles() {
       console.log(err);
     });
 }
+
+export function fetchArticleById(article_id) {
+  return mainApi
+    .get(`/articles/${article_id}`)
+    .then((res) => {
+      return res.data;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}

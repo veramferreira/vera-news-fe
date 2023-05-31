@@ -5,13 +5,11 @@
   text-align: center;
 }
 
-header {
-  border: 2px solid salmon;
-}
-
 ul {
   list-style: none;
 }
+
+/* HEADER */
 
 .header {
   display: flex;
@@ -25,17 +23,21 @@ ul {
 }
 
 .header--title {
+  font-size: 3rem;
+  font-weight: 900;
+  text-transform: uppercase;
   align-items: center;
   margin: 0;
   padding-top: 20px;
 }
+
+/* NAVEBAR */
 
 .nav {
   display: flex;
   justify-content: space-around;
   background-color: rgb(44, 40, 57);
   width: 100%;
-  
 }
 
 .nav > a {
@@ -46,8 +48,40 @@ ul {
 
 .nav > a:hover {
   transform: scale(1.1);
-  color: rgb(155, 177, 227)
+  color: rgb(155, 177, 227);
 }
+
+/* HOME */
+
+.home > h2 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  text-transform: lowercase;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.home--link {
+  display: block;
+  margin: 0 auto;
+  width: 150px;
+  padding: 20px 40px;
+  margin-top: 50px;
+  font-size: 1.3rem;
+  background-color: rgb(155, 177, 227);
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  color: rgb(44, 40, 57);
+  box-shadow: 0px 0px 15px 1px rgb(31, 42, 66);
+}
+
+.home--link:hover {
+  transform: scale(1.1);
+  color: aliceblue;
+}
+
+/* TOPICS LIST */
 
 .topics-list > h2 {
   padding-top: 30px;
@@ -83,6 +117,8 @@ ul {
   color: midnightblue;
 }
 
+/* ARTICLES LIST */
+
 .articles > li {
   display: flex;
   flex-direction: column;
@@ -108,22 +144,59 @@ ul {
   font-style: italic;
 }
 
+/* SINGLE ARTICLE */
+
+.article {
+  margin: 50px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.article--title {
+  font-size: 1.7rem;
+  padding-bottom: 0;
+}
+
+.article--topic {
+  padding-top: 0;
+  font-style: italic;
+  text-transform: lowercase;
+}
+
+.article--img {
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+
+.article--author {
+  font-size: 0.8rem;
+  font-style: italic;
+  margin-top: 5px;
+}
+
 @media screen and (max-width: 768px) {
-  .articles > li > img {
+  .articles > li > img,
+  .article--img {
     max-width: 80%;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .articles > li > img {
+  .articles > li > img,
+  .article--img {
     max-width: 100%;
   }
-   .articles > li > h3 {
+  .articles > li > h3,
+  .article--title {
     font-size: 14px;
     line-height: 1.2;
-   }
+  }
 
-   .articles > li > p {
+  .articles > li > p,
+  .article--body,
+  .article--author {
     font-size: 12px;
-   }
+  }
 }

@@ -20,13 +20,16 @@ export default function TopicsList() {
 
   if (isLoading) {
     return (
-      <BeatLoader
-        color={color}
-        loading={isLoading}
-        size={50}
-        aria-label="Loading Spinner"
-        data-testid="loader"
-      />
+      <>
+        <h3>waiting for your data to magically appear</h3>
+        <BeatLoader
+          color={color}
+          loading={isLoading}
+          size={50}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
+      </>
     );
   }
 
