@@ -22,7 +22,7 @@ export default function ArticlesList() {
   if (isLoading) {
     return (
       <>
-        <h3>waiting for your data to magically appear</h3>
+        <h3>waiting for all articles to magically appear</h3>
         <BeatLoader
           color={color}
           size={50}
