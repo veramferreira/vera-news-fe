@@ -1,7 +1,4 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 
@@ -11,15 +8,31 @@ ul {
 
 /* HEADER */
 
+header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
 .header {
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: rgb(205, 217, 244);
+  padding: 0 20px;
 }
 
 .title {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.header--logo {
+  margin-left: 20px;
+  width: 50px;
 }
 
 .header--title {
@@ -201,7 +214,7 @@ ul {
   padding: 10px 30px;
   margin: 20px 40px 20px 20px;
   border-radius: 5px;
-  border: 2px solid rgba(244, 243, 243, 0.75)
+  border: 2px solid rgba(244, 243, 243, 0.75);
 }
 
 .comments--stats {
@@ -209,7 +222,7 @@ ul {
   flex-direction: row;
   justify-content: space-between;
   color: rgb(82, 78, 95);
-  font-size: 0.90rem;
+  font-size: 0.9rem;
 }
 
 @media screen and (max-width: 768px) {
