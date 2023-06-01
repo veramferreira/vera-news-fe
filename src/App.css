@@ -240,7 +240,6 @@ header {
 }
 
 .comments--title {
-  text-align: left;
   padding-top: 20px;
 }
 
@@ -283,4 +282,59 @@ header {
   .article--author {
     font-size: 12px;
   }
+}
+
+
+
+
+
+
+
+
+/* POST COMMENT */
+
+.post-comment {
+  padding: 40px 40px;
+  margin:0 50px;
+  border-radius: 5px;
+  background-color: aliceblue;
+}
+
+.post-comment--title {
+  text-align: left;
+}
+
+.post-comment--form {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-comment--input {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-bottom: 30px ;
+}
+
+.post-comment--button {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    font-size: 1em;
+    font-weight: 500;
+    background-color: rgb(155, 177, 227);
+    color: rgb(44, 40, 57);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    height: 10%;
+    width: 20%;
+    align-self:self-end;
+    box-shadow: 0px -1px 10px 0px rgb(184, 190, 196);
+  }
+  
+  button:hover {
+    border-color: #646cff;
+  }
+  button:focus,
+  button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
 }

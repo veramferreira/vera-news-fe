@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchCommentsByArticleId } from "../utils";
 import BeatLoader from "react-spinners/BeatLoader";
+import PostComment from "./PostComment";
 
 export default function Comments({ article_id }) {
   const [comments, setComments] = useState([]);
@@ -34,7 +35,8 @@ export default function Comments({ article_id }) {
 
   return (
     <section className="comments">
-      <h2 className="comments--title">Comments:</h2>
+      <h2 className="comments--title">Comments</h2>
+      <PostComment />
       <ul>
         {comments.map((comment) => {
           return (
