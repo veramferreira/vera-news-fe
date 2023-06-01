@@ -54,7 +54,4 @@ export function patchVotesByArticleId(article_id, inc_votes) {
     .then((res) => {
       return res.data;
     })
-    .catch((err) => {
-      console.log(err);
-    });
 }

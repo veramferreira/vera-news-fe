@@ -41,34 +41,39 @@ export default function ArticleCard() {
 
   function handleUpVote() {
     const newVote = voted + 1;
-    patchVotesByArticleId(article_id, 1)
-      .then(() => {
-        setVoted(newVote);
-        setArticle((currArticle) => {
-          return { ...currArticle, votes: currArticle.votes + 1 };
-        });
-        setVoteMessage("Upvoted! Nice!");
-      })
-      .catch((err) => {
-        console.log(err);
-        setVoteMessage("Oooops! Something went wrong. Try again later.");
+    setVoted(newVote);
+    setArticle((currArticle) => {
+      return { ...currArticle, votes: currArticle.votes + 1 };
+    });
+    setVoteMessage("Upvoted! Nice!");
+
+    patchVotesByArticleId(article_id, 1).catch((err) => {
+      setVoted((prevVote) => prevVote - 1);
+      setArticle((currArticle) => {
+        return { ...currArticle, votes: currArticle.votes - 1 };
       });
+      setVoteMessage("Oooops! Something went wrong. Try again later.");
+      console.log(err);
+    });
   }
 
   function handleDownVote() {
     const newVote = voted - 1;
-    patchVotesByArticleId(article_id, -1)
-      .then(() => {
-        setVoted(newVote);
-        setArticle((currArticle) => {
-          return { ...currArticle, votes: currArticle.votes - 1 };
-        });
-        setVoteMessage("Downvoted!😢");
-      })
-      .catch((err) => {
-        console.log(err);
-        setVoteMessage("Oooops! Something went wrong. Try again later.");
+
+    setVoted(newVote);
+    setArticle((currArticle) => {
+      return { ...currArticle, votes: currArticle.votes - 1 };
+    });
+    setVoteMessage("Downvoted!😢");
+
+    patchVotesByArticleId(article_id, -1).catch((err) => {
+      setVoted((prevVote) => prevVote + 1);
+      setArticle((currArticle) => {
+        return { ...currArticle, votes: currArticle.votes + 1 };
       });
+      setVoteMessage("Oooops! Something went wrong. Try again later.");
+      console.log(err);
+    });
   }
 
   const { title, author, body, created_at, topic, votes, article_img_url } =
@@ -87,22 +92,21 @@ export default function ArticleCard() {
         />
         <div className="article--body">
           <p>{body}</p>
-          </div>
-          <p className="bold">Did you like this article?</p>
-          <div className="article--votes">
-            <InsertEmoticonOutlinedIcon
-              aria-label="upVote"
-              className="vote--emoji upVote"
-              onClick={handleUpVote}
-            />
-            <span className="current-votes bold">{article.votes}</span>
-            <MoodBadOutlinedIcon
-              aria-label="downVote"
-              className="vote--emoji downVote"
-              onClick={handleDownVote}
-            />
-            <p>{voteMessage}</p>
-          
+        </div>
+        <p className="bold">Did you like this article?</p>
+        <div className="article--votes">
+          <InsertEmoticonOutlinedIcon
+            aria-label="upVote"
+            className="vote--emoji upVote"
+            onClick={handleUpVote}
+          />
+          <span className="current-votes bold">{article.votes}</span>
+          <MoodBadOutlinedIcon
+            aria-label="downVote"
+            className="vote--emoji downVote"
+            onClick={handleDownVote}
+          />
+          <p>{voteMessage}</p>
         </div>
       </article>
       <Comments article_id={article_id} />
