@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchArticleById } from "../utils";
+import { fetchArticleById, patchVotesByArticleId } from "../utils";
 import BeatLoader from "react-spinners/BeatLoader";
 import Comments from "./Comments";
 import InsertEmoticonOutlinedIcon from "@mui/icons-material/InsertEmoticonOutlined";
@@ -12,6 +12,7 @@ export default function ArticleCard() {
   const [isLoading, setIsLoading] = useState(true);
   let [color, setColor] = useState("#ffffff");
   const [voted, setVoted] = useState(0);
+  const [voteMessage, setVoteMessage] = useState("");
 
   useEffect(() => {
     fetchArticleById(article_id)
@@ -22,7 +23,7 @@ export default function ArticleCard() {
         setArticle(article[0]);
         setIsLoading(false);
       });
-  }, []);
+  }, [article_id]);
 
   if (isLoading) {
     return (
@@ -39,27 +40,35 @@ export default function ArticleCard() {
   }
 
   function handleUpVote() {
-    setVoted((currVotes) => {
-      const newVote = currVotes + 1;
-      setArticle((currArticle) => {
-        return { ...currArticle, votes: newVote };
+    const newVote = voted + 1;
+    patchVotesByArticleId(article_id, 1)
+      .then(() => {
+        setVoted(newVote);
+        setArticle((currArticle) => {
+          return { ...currArticle, votes: currArticle.votes + 1 };
+        });
+        setVoteMessage("Upvoted! Nice!");
+      })
+      .catch((err) => {
+        console.log(err);
+        setVoteMessage("Oooops! Something went wrong. Try again later.");
       });
-      return newVote;
-    });
   }
 
   function handleDownVote() {
-    setVoted((currVotes) => {
-      if (currVotes !== 0) {
-        const newVote = currVotes - 1;
+    const newVote = voted - 1;
+    patchVotesByArticleId(article_id, -1)
+      .then(() => {
+        setVoted(newVote);
         setArticle((currArticle) => {
-          return { ...currArticle, votes: newVote };
+          return { ...currArticle, votes: currArticle.votes - 1 };
         });
-        return newVote;
-      } else {
-        return currVotes;
-      }
-    });
+        setVoteMessage("Downvoted!😢");
+      })
+      .catch((err) => {
+        console.log(err);
+        setVoteMessage("Oooops! Something went wrong. Try again later.");
+      });
   }
 
   const { title, author, body, created_at, topic, votes, article_img_url } =
@@ -81,14 +90,17 @@ export default function ArticleCard() {
           <p className="bold">Did you like this article?</p>
           <div className="article--votes">
             <InsertEmoticonOutlinedIcon
+              aria-label="upVote"
               className="vote--emoji upVote"
               onClick={handleUpVote}
             />
-            <span className="current-votes bold">{voted}</span>
+            <span className="current-votes bold">{article.votes}</span>
             <MoodBadOutlinedIcon
+              aria-label="downVote"
               className="vote--emoji downVote"
               onClick={handleDownVote}
             />
+            <p>{voteMessage}</p>
           </div>
         </div>
       </article>
