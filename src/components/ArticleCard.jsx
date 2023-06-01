@@ -87,6 +87,7 @@ export default function ArticleCard() {
         />
         <div className="article--body">
           <p>{body}</p>
+          </div>
           <p className="bold">Did you like this article?</p>
           <div className="article--votes">
             <InsertEmoticonOutlinedIcon
@@ -101,7 +102,7 @@ export default function ArticleCard() {
               onClick={handleDownVote}
             />
             <p>{voteMessage}</p>
-          </div>
+          
         </div>
       </article>
       <Comments article_id={article_id} />
