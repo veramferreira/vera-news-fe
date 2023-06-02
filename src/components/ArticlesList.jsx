@@ -23,6 +23,7 @@ export default function ArticlesList() {
     return (
       <>
         <h3>waiting for all articles to magically appear</h3>
+        <p>(this might take a while...🫣)</p>
         <BeatLoader
           color={color}
           size={50}

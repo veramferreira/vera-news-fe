@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchCommentsByArticleId } from "../utils";
 import BeatLoader from "react-spinners/BeatLoader";
+import PostComment from "./PostComment";
 
 export default function Comments({ article_id }) {
   const [comments, setComments] = useState([]);
@@ -22,6 +23,7 @@ export default function Comments({ article_id }) {
     return (
       <>
         <h3>waiting for the comments to magically appear</h3>
+        <p>(this might take a while...🫣)</p>
         <BeatLoader
           color={color}
           size={50}
@@ -34,8 +36,9 @@ export default function Comments({ article_id }) {
 
   return (
     <section className="comments">
-      <h2 className="comments--title">Comments:</h2>
-      <ul>
+      <h2 className="comments--title">• Comments •</h2>
+      <PostComment setComments={setComments} article_id={article_id}/>
+      <ul >
         {comments.map((comment) => {
           return (
             <li className="comments--card" key={comment.comment_id}>

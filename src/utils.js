@@ -54,4 +54,16 @@ export function patchVotesByArticleId(article_id, inc_votes) {
     .then((res) => {
       return res.data;
     })
-}
+  }
+
+  export function postCommentByArticleId(article_id, newComment) {
+    const postBody = {
+      username: "jessjelly",
+      body: newComment,
+    };
+    return mainApi
+      .post(`/articles/${article_id}/comments`, postBody)
+      .then((res) => {
+        return res.data;
+      })
+    }

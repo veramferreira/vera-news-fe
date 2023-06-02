@@ -240,7 +240,6 @@ header {
 }
 
 .comments--title {
-  text-align: left;
   padding-top: 20px;
 }
 
@@ -258,6 +257,72 @@ header {
   justify-content: space-between;
   color: rgb(82, 78, 95);
   font-size: 0.9rem;
+}
+
+/* POST COMMENT */
+
+.post-comment {
+  padding: 40px 40px;
+  margin:0 50px;
+  border-radius: 5px;
+  background-color: aliceblue;
+}
+
+.post-comment--title {
+  text-align: left;
+}
+
+.post-comment--form {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-comment--input {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 30px ;
+}
+
+.post-comment--button {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    font-size: 1em;
+    font-weight: 500;
+    background-color: rgb(155, 177, 227);
+    color: rgb(44, 40, 57);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    height: 10%;
+    width: 20%;
+    align-self:self-end;
+    box-shadow: 0px -1px 10px 0px rgb(184, 190, 196);
+  }
+  
+  button:hover {
+    border-color: #646cff;
+  }
+  button:focus,
+  button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+}
+
+.post-comment--label {
+  padding-top: 15px;
+}
+
+.comment-textarea {
+  background-color: white;
+  border-radius: 8px;
+  color: rgb(44, 40, 57);
+  text-indent: 15px ;
+  padding-top: 15px;
+}
+
+.comment-textarea::placeholder {
+  text-indent: 15px ;
+  padding-top: 15px;
 }
 
 @media screen and (max-width: 768px) {
