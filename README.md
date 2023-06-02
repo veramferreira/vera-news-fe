@@ -14,3 +14,5 @@ V News is a social news aggregator built with React and styled with a mix of van
 - Material-UI
 - Spinners-react
 - Axios
+
+The Backend Project can be found here: https://github.com/veramferreira/vera-news
