@@ -6,6 +6,12 @@ ul {
   list-style: none;
 }
 
+/* GENERAL STYLING */
+
+.bold {
+  font-weight: 700;
+}
+
 /* HEADER */
 
 header {
@@ -33,6 +39,10 @@ header {
 .header--logo {
   margin-left: 20px;
   width: 50px;
+}
+
+.header--logo:hover {
+  transform: scale(1.1);
 }
 
 .header--title {
@@ -187,6 +197,31 @@ header {
   font-size: 0.8rem;
   font-style: italic;
   margin-top: 5px;
+}
+
+.article--body {
+  background-color: white;
+  padding: 30px 40px;
+  border-radius: 15px;
+  text-align: justify;
+}
+
+.article--body > p {
+  font-size: 1.1rem;
+}
+
+.current-votes {
+  background-color: rgb(155, 177, 227);
+  padding: 5px 15px;
+  margin: 0 10px;
+  border-radius: 10px;
+  color: rgb(31, 42, 66);
+  font-size: 1.2rem;
+}
+
+.vote--emoji:hover {
+  transform: scale(1.1);
+  cursor: pointer;
 }
 
 /* COMMENTS */
