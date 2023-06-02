@@ -29,6 +29,7 @@ export default function ArticleCard() {
     return (
       <>
         <h3>waiting for this article to magically appear</h3>
+        <p>(this might take a while...🫣)</p>
         <BeatLoader
           color={color}
           size={50}

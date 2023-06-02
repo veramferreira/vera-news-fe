@@ -259,38 +259,6 @@ header {
   font-size: 0.9rem;
 }
 
-@media screen and (max-width: 768px) {
-  .articles > li > img,
-  .article--img {
-    max-width: 80%;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .articles > li > img,
-  .article--img {
-    max-width: 100%;
-  }
-  .articles > li > h3,
-  .article--title {
-    font-size: 14px;
-    line-height: 1.2;
-  }
-
-  .articles > li > p,
-  .article--body,
-  .article--author {
-    font-size: 12px;
-  }
-}
-
-
-
-
-
-
-
-
 /* POST COMMENT */
 
 .post-comment {
@@ -311,7 +279,8 @@ header {
 
 .post-comment--input {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 20px;
   flex-wrap: wrap;
   margin-bottom: 30px ;
 }
@@ -337,4 +306,46 @@ header {
   button:focus,
   button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
+}
+
+.post-comment--label {
+  padding-top: 15px;
+}
+
+.comment-textarea {
+  background-color: white;
+  border-radius: 8px;
+  color: rgb(44, 40, 57);
+  text-indent: 15px ;
+  padding-top: 15px;
+}
+
+.comment-textarea::placeholder {
+  text-indent: 15px ;
+  padding-top: 15px;
+}
+
+@media screen and (max-width: 768px) {
+  .articles > li > img,
+  .article--img {
+    max-width: 80%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .articles > li > img,
+  .article--img {
+    max-width: 100%;
+  }
+  .articles > li > h3,
+  .article--title {
+    font-size: 14px;
+    line-height: 1.2;
+  }
+
+  .articles > li > p,
+  .article--body,
+  .article--author {
+    font-size: 12px;
+  }
 }
